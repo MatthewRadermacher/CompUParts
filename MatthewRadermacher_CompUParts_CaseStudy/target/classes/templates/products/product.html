@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts :: head">
+</head>
+
+<body>
+
+	<nav th:replace="layouts :: navbar"></nav>
+
+	<div class="container">
+		<h3><span th:text="${proCatalog.name}"></span></h3>
+		<img th:src="@{${'/img/' + proCatalog.product_id + '.jpg'}}" alt="${proCatalog.name}" style="max-width:40%;"/>
+		<p>Price: <span th:text="${proCatalog.price}"></span></p>
+		<a th:href="@{/products/purchase(id=${proCatalog.product_id})}"
+				class="btn btn-primary btn-sm mb-3"> 
+				Purchase 
+			</a>
+	</div>
+</body>
+
+</html>

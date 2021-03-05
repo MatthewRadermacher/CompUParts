@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="layouts :: head"> 
+	</head>
+	
+	<body>
+	
+	<nav th:replace="layouts :: navbar"></nav>
+
+		<div class="container">
+			<h3>Product Catalog</h3>
+			<hr>
+			
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Product Name</th>
+						<th>Product Description</th>
+						<th>Product Price</th>
+						<th>Product Quantity</th>
+					</tr>
+				</thead>		
+				<tbody>
+					<tr th:each="product : ${products}">
+						<td>
+							<a th:href="@{/products/specific(id=${product.product_id})}"><span th:text="${product.name}"></span></a>
+						</td>
+						<td th:text="${product.description}"/>
+						<td th:text="${product.price}"/>
+						<td th:text="${product.quantity}"/>
+					</tr>
+				</tbody>
+			
+			</table>
+		</div>
+	</body>
+	
+</html>
